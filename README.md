@@ -1,60 +1,60 @@
 # Score an Essay v1.7
 
-#### 介绍
+#### Introduction
 
-我们小组使用基于Transformer的预训练大语言模型DeBERTa，使用给定的数据集，完成了英语作文评分任务。
+Our group used the pre-trained large language model **DeBERTa** based on **Transformer** to complete the English composition scoring task using the given data set.
 
-研究动机：
-使用人工智能代替人工进行英语作文评分已成为自然语言处理领域较为成功的一项任务，这一任务由图神经网络实现的代码及其使用的数据集已在 Kaggle 平台上开源，我们猜测使用Transformer架构的预训练模型可能可以取得比GNN更好的效果。
+Research motivation:
+Using AI to replace manual grading of English compositions has become a more successful task in the field of NLP(natural language processing). The code implemented by the graph neural network and the data set used for this task have been open sourced on the Kaggle platform. We speculate that a pre-trained model using the Transformer architecture may achieve better results than GNN.
 
-取得成果：
-我们取得的mcrmse分数（越低越好）为0.4422。已接近kaggle平台该比赛的金牌项目得分（0.4334），并远远击败图神经网络项目得分（ 0.7139 ）。
+Achievements:
+The MCRMSE score we achieved (lower is better) was 0.4422. It is close to the gold medal project's score (0.4334) of the competition on the kaggle platform, and far beats the GNN(graph neural network) project's score (0.7139).
 
-研究意义：
-我们常发现在写完英语作文后很难找到其他人能够帮忙对作文评分，本项目可以帮助学习英语写作的同学对一篇文章的写作水平有个快速，粗略的了解。
+Significance:
+We often find that after writing an English composition, it is difficult to find other people who can help grade the composition. This project can help students who are learning English writing have a quick and rough understanding of the writing level of an article.
 
-#### 数据集
+#### Dataset
 
-kaggle比赛链接：
+kaggle competition link：
 https://www.kaggle.com/competitions/feedback-prize-english-language-learning/
 
-数据集介绍：
-数据集（ELLIPSE语料库）包括由8至12年级的英语学习者（ELLs）撰写的辩论性文章。这些文章根据六个分析指标进行评分：连贯性、语法、词汇、短语表达、语法和规范。
-每个指标代表作文水平的一个组成部分，分数越高表示在该指标上的作文水平越高。分数范围从1.0到5.0，每次增加0.5。你的任务是预测测试集中每篇文章的这六个指标的分数。
+Dataset introduction:
+The data set (ELLIPSE corpus) consists of argumentative essays written by English Language Learners (ELLs) in grades 8 to 12. The essays are scored on six analytical indicators: coherence, grammar, vocabulary, phrasing, grammar and convention.
+Each indicator represents a component of composition level, and the higher the score, the higher the composition level on that indicator. Scores range from 1.0 to 5.0 in increments of 0.5. Your task is to predict the score of these six metrics for each article in the test set.
 
-数据集文件和字段信息：
-train.csv - 训练集，包括每篇文章的full_text，由唯一的text_id标识。
-test.csv - 对于测试数据，只提供了文章的full_text以及它的text_id。
-sample_submission.csv - 一个以正确格式保存的提交文件。
+Dataset file and field information:
+train.csv - The training set, including the full_text of each article, is identified by a unique text_id.
+test.csv - For test data, only the full_text of the article and its text_id are provided.
+sample_submission.csv - A submission file saved in the correct format.
 
-#### 模型介绍
+#### Model
 
-输入文本分词后通过 DeBERTa骨干模型提取隐藏状态，这些隐藏状态被传递给均值池化模块，产生固定长度的文本表示，这个文本表示被送入全连接神经网络，输出预测结果。
+After the input text is segmented, the hidden states are extracted through the DeBERTa backbone model. These hidden states are passed to the mean pooling module to generate a fixed-length text representation. This text representation is sent to the fully connected neural network to output the prediction results.
 
 <img src="./model.png" title="模型结构图" width=400 >
 
-#### 安装教程
+#### Installation
 
-1.  下载数据集
+1.  Download dataset
 
 从 <a href="https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data">https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data</a> 下载数据集
 
 放入 <strong>.\input\feedback-prize-english-language-learning</strong> 路径下
 
-2.  安装依赖库
+2.  Install dependent libraries
 
-如果您使用conda管理环境，需要先激活环境
+If you use conda to manage the environment, you need to activate the environment first
 <code>conda activate 环境名称</code>
 
-在项目路径下使用命令行执行以下命令以安装依赖库
+Use the command line in the project path to execute the following command to install dependent libraries
 <code>pip install -r requirement.txt</code>
 
-3.  使用支持jupyter notebook的编译器打开本项目，推荐使用安装notebook插件的vscode
+3.  Use a compiler that supports jupyter notebook to open this project. It is recommended to use vscode with the notebook plug-in installed.
 
-#### 使用说明
+#### Usage
 
-1.  train.ipynb为训练代码，提供了训练和简易的测试功能
-2.  test.ipynb为测试代码，实现了一些使用模型的样例
-3.  demo.ipynb实现了一个GUI界面，可以随时输入文章进行评分
+1. train.ipynb is the training code, providing training and simple testing functions.
+2. test.ipynb is the test code and implements some examples of using the model.
+3. demo.ipynb implements a GUI interface, and articles can be entered for rating at any time.
 
 <img src="./gui.png" title="GUI输出效果图" width=400 >
