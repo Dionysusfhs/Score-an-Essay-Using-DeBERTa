@@ -37,14 +37,14 @@ After the input text is segmented, the hidden states are extracted through the D
 
 1.  Download dataset
 
-从 <a href="https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data">https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data</a> 下载数据集
+Download the dataset from <a href="https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data">https://www.kaggle.com/competitions/feedback-prize-english-language-learning/data</a>
 
-放入 <strong>.\input\feedback-prize-english-language-learning</strong> 路径下
+Put it in this path <strong>.\input\feedback-prize-english-language-learning</strong>
 
 2.  Install dependent libraries
 
 If you use conda to manage the environment, you need to activate the environment first
-<code>conda activate 环境名称</code>
+<code>conda activate EnvironmentName</code>
 
 Use the command line in the project path to execute the following command to install dependent libraries
 <code>pip install -r requirement.txt</code>
