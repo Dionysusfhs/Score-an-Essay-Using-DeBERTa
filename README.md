@@ -5,12 +5,15 @@
 Our group used the pre-trained large language model **DeBERTa** based on **Transformer** to complete the English composition scoring task using the given data set.
 
 Research motivation:
+
 Using AI to replace manual grading of English compositions has become a more successful task in the field of NLP(natural language processing). The code implemented by the graph neural network and the data set used for this task have been open sourced on the Kaggle platform. We speculate that a pre-trained model using the Transformer architecture may achieve better results than GNN.
 
 Achievements:
+
 The MCRMSE score we achieved (lower is better) was 0.4422. It is close to the gold medal project's score (0.4334) of the competition on the kaggle platform, and far beats the GNN(graph neural network) project's score (0.7139).
 
 Significance:
+
 We often find that after writing an English composition, it is difficult to find other people who can help grade the composition. This project can help students who are learning English writing have a quick and rough understanding of the writing level of an article.
 
 #### Dataset
