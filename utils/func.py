@@ -10,6 +10,7 @@ def to_scores(inputs):
                 decimal = 0
 
             elif decimal >= 0.25 and decimal < 0.75:
+                decimal = 0.5
 
             elif decimal >= 0.75 and decimal < 1.00:
                 decimal = 1
